@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Monda&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anaheim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@200;300&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+body {
+    font-family: 'Anaheim', sans-serif;
+    word-spacing: -2px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.card-header {
+    height: 60px;
+    background: rgb(135,0,187);
+    background: linear-gradient(180deg, 
+        rgb(202, 165, 251) 0%, 
+        rgb(114, 42, 209) 40%, 
+        rgb(234, 211, 255) 100%);
+        border: none;
+        color: white;
+}
+
+.fa-window-minimize, 
+.fa-window-maximize,
+.fa-xmark {
+    color: rgb(214, 203, 234);
+}
+
+.card-header:first-child {
+    border-radius: 9px 9px 0 0;
+}
+
+.app {
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    max-width: 600px;
+    background-color: #faf9f4;
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border: 1.4px solid rgba(96,34,153,1);
+    border-radius: 10px 10px 0px 0px;
+}
+
+.screen form {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 220px;
+}
+.form-input {
+    padding: 0.1rem;
+}
+
+.form-input p {
+    padding: 0.2rem;
+    margin: 0px;
+    /* font-weight: bold; */
+}
+
+.form-check-input[type=checkbox] {
+    padding: 0px;
+    width: 13px;
+    height: 13px;
+    border-radius: 0px;
+    border: 1px solid #555;
+}
+
+.form-check-input:checked[type=checkbox] {
+    background-color: #fff;
+    background-image: url("http://localhost:3001/assets/bluecheckmark.png");
+    background-position: center;
+    background-size: 80%;
+}
+
+.form-input #username,
+.form-input #password,
+.form-input #email,
+.form-input #password-confirm {
+    width: 100%;
+    height: 30px;
+    padding: 10px;
+    border: 1px solid #555;
+}
+
+/* .form-check-label {
+    font-weight: bold;
+} */
+
+.screen .form-input button {
+    width: 40%;
+    padding: 2px 10px;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(224,174,255,1) 73%, rgba(237,208,255,1) 100%);
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.chat-screen-body {
+    flex: 1 1 auto;
+    padding: 0rem 0.5rem;
+    max-height: 540px;
+}
+
+.screen.chat-screen {
+    height: 100%;
+}
+
+.chat-header {   
+    padding-left: 5px; 
+    font-weight: 500;
+    color: white;
+    font-family: 'Kanit', sans-serif;
+}
+
+.chat-screen .toolbar {
+    height: 110px;
+}
+
+.tool {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.chat-screen .messages {
+    width: 100%;
+    height: calc(100% - 280px);
+    overflow-wrap: anywhere;
+    background: #fff;
+    overflow: auto;
+    padding: 5px;
+    border: 1px solid rgb(144, 144, 144);
+    box-shadow: rgba(0, 0, 0, 0.1) 2px -2px 2px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.chat-screen .icons {
+    height: 40px;
+    padding: 4px 0px;
+}
+
+.chat-screen .typebox {
+    background-color: #fff;
+    position:relative;
+    width: 100%;
+    height: 100px;
+    padding: 0px 5px;
+    border: 1px solid rgb(144, 144, 144);
+    box-shadow: rgba(0, 0, 0, 0.1) 2px -2px 2px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+#message-input {
+    width: 100%;
+    height: 98%;
+    border: none;    
+    box-shadow: none;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    resize: none;
+}
+
+.name, .text {
+    display: inline-block;
+}
+
+.my-message .name {
+    font-weight: 500;
+    color: grey;
+    font-family: 'Kanit', sans-serif;
+}
+
+.others-message .name {
+    font-weight: 500;
+    color: rgb(73, 3, 158);
+    font-family: 'Kanit', sans-serif;
+}
+
+.chat-screen .messages .update {
+    text-align: center;
+    padding: 10px;
+    font-style: italic;
+}
+
+#send-message {
+    width: 70%;
+    height: 30px;
+    position: relative;
+    float: right;
+    margin: 35px 5px;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(224,174,255,1) 73%, rgba(237,208,255,1) 100%);
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+
+.icons-box {
+    background-color: rgb(243, 238, 223);
+    width: 530px;
+    position: absolute;
+    z-index: 10;
+    left: 50px;
+    top: 200px;
+}
