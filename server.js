@@ -52,6 +52,9 @@ io.on("connection", (socket) => {
         // send other's message to socket.on on client side
         socket.broadcast.emit("chat", message);
     });
+    socket.on("buzz", (message) => {
+        socket.broadcast.emit("buzz", message);
+    })
 });
 
 server.listen(3001, () => {

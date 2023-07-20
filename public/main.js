@@ -10,6 +10,20 @@ $(document).ready(function () {
     let uname = window.username;
     socket.emit("newuser", uname);
 
+    $("#buzz").on("click", () => {
+        const message = "BUZZ!!";
+        socket.emit("buzz", message);
+        renderMessage("buzz", message);
+        // the whole app will shake
+        $(".app").addClass("shake");
+        // then remove the animation
+        var delay = setTimeout(() => {
+            $(".shake").removeClass("shake");
+        }, 500);
+        var buzzSound = new Audio('http://localhost:3001/assets/messenger_buzz.mp3');
+        buzzSound.play();
+    })
+
     // trigger click event when pressing enter
     $("#message-input").keydown((e) => {
         if (e.which === 13) {
@@ -74,6 +88,18 @@ $(document).ready(function () {
         renderMessage("other", message);
     });
 
+    socket.on("buzz", (message) => {
+        renderMessage("buzz", message);
+        // the whole app will shake
+        $(".app").addClass("shake");
+        // then remove the animation
+        var delay = setTimeout(() => {
+            $(".shake").removeClass("shake");
+        }, 500);
+        var buzzSound = new Audio('http://localhost:3001/assets/messenger_buzz.mp3');
+        buzzSound.play();
+    })
+
     const renderMessage = (type, message) => {
         if (type == "my") {
             $(".messages").append(`
@@ -92,6 +118,10 @@ $(document).ready(function () {
         } else if (type == "update") {
             $(".messages").append(`
                 <div class="update">${message}</div>
+            `);
+        } else if (type == "buzz") {
+            $(".messages").append(`
+                <div id="BUZZ">${message}</div>
             `);
         }
         // scroll to the latest message
