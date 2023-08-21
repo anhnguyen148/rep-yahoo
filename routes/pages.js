@@ -15,7 +15,8 @@ router.get("/login", (req, res) => {
 router.get("/", auth, (req, res) => {
     // grab the value of username on request sent then render index page with username value.
     const username = req.username;
-    res.render("index", {username});
+    const userId = req.userId;
+    res.render("index", {username, userId});
 });
 
 module.exports = router;

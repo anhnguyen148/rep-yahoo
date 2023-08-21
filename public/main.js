@@ -19,8 +19,8 @@ $(document).ready(function () {
         // then remove the animation
         var delay = setTimeout(() => {
             $(".shake").removeClass("shake");
-        }, 500);
-        var buzzSound = new Audio('http://localhost:3001/assets/messenger_buzz.mp3');
+        }, 300);
+        var buzzSound = new Audio('https://qanguyen.net/yahooAssets/assets/messenger_buzz.mp3');
         buzzSound.play();
     })
 
@@ -67,7 +67,7 @@ $(document).ready(function () {
     $("#exit-chat").on("click", (e) => {
         e.preventDefault();
         socket.emit("exituser", uname);
-        fetch("http://localhost:3001/auth/logout", {
+        fetch("https://qanguyen.net/auth/logout", {
             method: "GET",
             credentials: 'same-origin'
         }).then(res => {
@@ -95,8 +95,8 @@ $(document).ready(function () {
         // then remove the animation
         var delay = setTimeout(() => {
             $(".shake").removeClass("shake");
-        }, 500);
-        var buzzSound = new Audio('http://localhost:3001/assets/messenger_buzz.mp3');
+        }, 300);
+        var buzzSound = new Audio('https://qanguyen.net/yahooAssets/assets/messenger_buzz.mp3');
         buzzSound.play();
     })
 

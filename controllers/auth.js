@@ -4,8 +4,9 @@ const bcrypt = require("bcryptjs");
 
 const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
-    user: "root",
-    password: "",
+    port: process.env.DATABASE_PORT,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE
 });
 
@@ -60,7 +61,6 @@ exports.login = (req, res) => {
                     console.log(error);
                 } else {
                     const dbPassword = results[0].password;
-                    console.log(password, dbPassword);
                     bcrypt.compare(password, dbPassword, async (error, isMatch) => {
                         if (error) {
                             console.log(error);

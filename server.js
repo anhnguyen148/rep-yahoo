@@ -10,14 +10,9 @@ const cookieParser = require("cookie-parser");
 // configraration with env.
 dotenv.config();
 
-const db = mysql.createConnection({
-    host: process.env.DATABASE_HOST,    
-    database: process.env.DATABASE,
-    user: process.env.DATABASE_USER,
-    password: process.env.DATABASE_PASSWORD
-});
+const db = require("./db");
 
-db.connect((error) => {
+db.db.connect((error) => {
     if (error) {
         console.log(error);
     } else {
@@ -26,8 +21,8 @@ db.connect((error) => {
 })
 
 const publicDir = path.join(__dirname, "./public");
-
 app.use(express.static(publicDir));
+
 // parse URL-encoded and json form bodies 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -41,7 +36,7 @@ io.on("connection", (socket) => {
     // listen message from "newuser" type
     socket.on("newuser", (username) => {        
         // broadcast = To all connected clients except the sender
-        // send message to socket.on "updtae" type on client side 
+        // send message to socket.on "update" type on client side 
         socket.broadcast.emit("update", username + " has joined the conversation");
     });
     socket.on("exituser", (username) => {
@@ -57,6 +52,6 @@ io.on("connection", (socket) => {
     })
 });
 
-server.listen(3001, () => {
+server.listen(3001, "0.0.0.0", () => {
     console.log("Connected 3001");
 })

@@ -78,7 +78,7 @@ body {
 
 .form-check-input:checked[type=checkbox] {
     background-color: #fff;
-    background-image: url("http://localhost:3001/assets/bluecheckmark.png");
+    background-image: url("https://qanguyen.net/yahooAssets/assets/bluecheckmark.png");
     background-position: center;
     background-size: 80%;
 }

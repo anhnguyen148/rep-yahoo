@@ -1,12 +1,8 @@
 const jwt = require('jsonwebtoken');
 const mysql = require("mysql");
+const dbConn = require("./db");
 
-const db = mysql.createConnection({
-    host: process.env.DATABASE_HOST,
-    user: "root",
-    password: "",
-    database: process.env.DATABASE
-});
+const db = dbConn.db;
 
 const tokenCheck = (req, res, next) => {
     // get token from user's cookie
@@ -22,6 +18,7 @@ const tokenCheck = (req, res, next) => {
                     console.log("Retrieve token successfully", decoded);
                     // attach the username to request sends to server
                     req.username = decoded.username;
+                    req.userId = decoded.id;
                     next();
                 }
             });
